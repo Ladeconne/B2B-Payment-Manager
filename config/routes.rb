@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get '/dashboard', to: 'pages#dashboard', as: :dashboard
 
   # Profile controller
-  get "/profiles/new", to: "profiles#new", as: "new_profile"
-  post "/profiles", to: "profiles#create"
+
+  resources :profiles, only: [:new, :create]
+  get '/profiles/:id/dashboard', to: 'profiles#dashboard', as: :dashboard
+  resources :transactions, only: [:create]
 end

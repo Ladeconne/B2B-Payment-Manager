@@ -13,3 +13,10 @@ Debit day : <%= @debit_day %>
 Debit month : <%= @debit_month %>
 <br>
 Balance : <%= @balance %>
+
+
+<%= simple_form_for @new_invoice do |f| %>
+  <%= f.input :amount, label: "Amount" %>
+  <%= f.input :due_date, label: "Due date" %>
+  <%= f.input :received, label: "Status" %>
+<% end %>
