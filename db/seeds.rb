@@ -21,4 +21,11 @@ p "Creating two new profiles"
     invoice.date = Faker::Date.backward(days: 250)
     invoice.amount = Faker::Number.between(from: 30, to: 600)
   end
+
+  8.times do
+    invoice = Transaction.new
+    invoice.type = "payment"
+    invoice.company_paid = Faker::Company.name
+    invoice.amount = Faker::Number.between(from: 30, to: 600)
+  end
 end
