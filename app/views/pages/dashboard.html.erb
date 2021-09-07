@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+<%= @invoices.first.nature %>
+<%= @invoices.first.amount %>
+<%= @invoices.first.date %>
+Credit day : <%= @credit_day %>
+Credit month : <%= @credit_month %>
+<br>
+<%= @payments.first.nature %>
+<%= @payments.first.amount %>
+<%= @payments.first.date %>
+<%= @payments.first.company_paid %>
+Debit day : <%= @debit_day %>
+Debit month : <%= @debit_month %>
