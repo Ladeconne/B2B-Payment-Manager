@@ -9,10 +9,19 @@
 p "Deleting all transactions and all profiles"
 Transaction.destroy_all
 Profile.destroy_all
+User.destroy_all
+
+puts "creating fake users..."
+user = User.new(email: "user@user.com", password: "password")
+user.save!
+
 
 p "Creating a new profile"
 profile = Profile.new
 profile.name = "So Frost"
+profile.user = user
+profile.save!
+p "Profile created successfully"
 
 p "Creating 10 new invoices"
 10.times do
@@ -37,6 +46,3 @@ p "Creating 10 new payments"
   payment.save!
 end
 p "Payments created successfully"
-
-profile.save!
-p "Profile created successfully"

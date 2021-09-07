@@ -1,5 +1,18 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: %i[show destroy edit update]
+
   def new
+    @profile = Profile.new
+  end
+
+  def create
+    @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    if profile.save
+      redirect_to profile_dashboard_path(@profile)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -11,9 +24,16 @@ class ProfilesController < ApplicationController
   def delete
   end
 
-  def create
+  def update
   end
 
-  def update
+  private
+
+  def profile_params
+    params.require(:profile).permit(:name)
+  end
+
+  def set_profile
+    @profile = Profile.find(params[:id])
   end
 end
