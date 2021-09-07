@@ -24,10 +24,10 @@ profile.save!
 p "Profile created successfully"
 
 p "Creating 10 new invoices"
-10.times do
+100.times do
   invoice = Transaction.new
   invoice.nature = "invoice"
-  invoice.date = Faker::Date.backward(days: 250)
+  invoice.date = Faker::Date.backward(days: 90)
   invoice.amount = Faker::Number.between(from: 30, to: 600)
   invoice.profile = profile
   invoice.save!
@@ -35,12 +35,12 @@ end
 p "Invoices created successfully"
 
 p "Creating 10 new payments"
-8.times do
+100.times do
   payment = Transaction.new
   payment.nature = "payment"
   payment.company_paid = Faker::Company.name
   payment.description = Faker::Lorem.sentences(number: 3, supplemental: true)
-  payment.date = Faker::Date.backward(days: 250)
+  payment.date = Faker::Date.backward(days: 90)
   payment.amount = Faker::Number.between(from: 30, to: 600)
   payment.profile = profile
   payment.save!
