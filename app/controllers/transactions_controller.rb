@@ -12,7 +12,6 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to dashboard_path
     else
-      raise
       render 'pages/dashboard'
     end
   end

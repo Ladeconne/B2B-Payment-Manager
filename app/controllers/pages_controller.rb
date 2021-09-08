@@ -33,6 +33,23 @@ class PagesController < ApplicationController
     @new_payment.profile = @active_profile
   end
 
+  def invoices
+    # Get every profile of the user
+    @profiles = current_user.profiles
+
+    # Set the profile as the first of the user
+    @active_profile = @profiles.first
+
+    # Retrieve invoices
+    @invoices = Transaction.where(profile: @active_profile, nature: "invoice").limit(30).sort_by(&:date)
+    # Initiate a new invoice for the invoice form
+    @new_invoice = Transaction.new
+    @new_invoice.nature = "invoice"
+    @new_invoice.profile_id = @active_profile.id
+  end
+
+  def payments
+  end
   private
 
   # DASHBOARD CALCULATIONS
