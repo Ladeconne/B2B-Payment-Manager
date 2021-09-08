@@ -40,8 +40,8 @@ class PagesController < ApplicationController
     # Set the profile as the first of the user
     @active_profile = @profiles.first
 
-    # Retrieve invoices
-    @invoices = Transaction.where(profile: @active_profile, nature: "invoice").limit(30).sort_by(&:date)
+    # Retrieve invoices, sort them by date descending and limit the answer size
+    @invoices = Transaction.where(profile: @active_profile, nature: "invoice").order("date DESC").limit(30)
     # Initiate a new invoice for the invoice form
     @new_invoice = Transaction.new
     @new_invoice.nature = "invoice"
@@ -49,7 +49,20 @@ class PagesController < ApplicationController
   end
 
   def payments
+    # Get every profile of the user
+    @profiles = current_user.profiles
+
+    # Set the profile as the first of the user
+    @active_profile = @profiles.first
+
+    # Retrieve invoices
+    @payments = Transaction.where(profile: @active_profile, nature: "payment").order("date DESC").limit(30)
+    # Initiate a new payment for the payment form
+    @new_payment = Transaction.new
+    @new_payment.nature = "payment"
+    @new_payment.profile_id = @active_profile.id
   end
+
   private
 
   # DASHBOARD CALCULATIONS
