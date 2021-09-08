@@ -1,16 +1,11 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
+  before_action :set_active_profile, only: [:dashboard, :invoices, :payments]
 
   def home
   end
 
   def dashboard
-    # Get every profile of the user
-    @profiles = current_user.profiles
-
-    # Set the profile as the first of the user
-    @active_profile = @profiles.first
-
     # Retrieve invoices and payments
     @invoices = Transaction.where(profile: @active_profile, nature: "invoice")
     @payments = Transaction.where(profile: @active_profile, nature: "payment")
@@ -34,12 +29,6 @@ class PagesController < ApplicationController
   end
 
   def invoices
-    # Get every profile of the user
-    @profiles = current_user.profiles
-
-    # Set the profile as the first of the user
-    @active_profile = @profiles.first
-
     # Retrieve invoices, sort them by date descending and limit the answer size
     @invoices = Transaction.where(profile: @active_profile, nature: "invoice").order("date DESC").limit(30)
     # Initiate a new invoice for the invoice form
@@ -49,12 +38,6 @@ class PagesController < ApplicationController
   end
 
   def payments
-    # Get every profile of the user
-    @profiles = current_user.profiles
-
-    # Set the profile as the first of the user
-    @active_profile = @profiles.first
-
     # Retrieve invoices
     @payments = Transaction.where(profile: @active_profile, nature: "payment").order("date DESC").limit(30)
     # Initiate a new payment for the payment form
@@ -91,5 +74,20 @@ class PagesController < ApplicationController
     tot_invoice = calc_total("invoice")
     tot_payment = calc_total("payment")
     return tot_invoice - tot_payment
+  end
+
+  def set_active_profile
+    # Get every profile of the user
+    if params[:profile_id]
+      session[:profile_id] = params[:profile_id]
+      # If a param is setting the profile_id used than set it as active_profile
+      @active_profile = Profile.find(session[:profile_id])
+    elsif session[:profile_id]
+      @active_profile = Profile.find(session[:profile_id])
+    else
+      # Set the profile as the first of the user
+      @profiles = current_user.profiles
+      @active_profile = @profiles.first
+    end
   end
 end

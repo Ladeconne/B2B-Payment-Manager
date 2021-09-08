@@ -1,18 +1,24 @@
 <h1>Dashboard - <%= @active_profile.name %></h1>
-<%= @invoices.first.nature %>
-<%= @invoices.first.amount %>
-<%= @invoices.first.date %>
-Credit day : <%= @credit_day %>
-Credit month : <%= @credit_month %>
+<% unless @invoices.empty? %>
+  <%= @invoices.first.nature %>
+  <%= @invoices.first.amount %>
+  <%= @invoices.first.date %>
+  Credit day : <%= @credit_day %>
+  Credit month : <%= @credit_month %>
+<% end %>
 <br>
-<%= @payments.first.nature %>
-<%= @payments.first.amount %>
-<%= @payments.first.date %>
-<%= @payments.first.company_paid %>
-Debit day : <%= @debit_day %>
-Debit month : <%= @debit_month %>
+<% unless @payments.empty? %>
+  <%= @payments.first.nature %>
+  <%= @payments.first.amount %>
+  <%= @payments.first.date %>
+  <%= @payments.first.company_paid %>
+  Debit day : <%= @debit_day %>
+  Debit month : <%= @debit_month %>
+<% end %>
 <br>
-Balance : <%= @balance %>
+<% unless @invoices.empty? && @payments.empty? %>
+  Balance : <%= @balance %>
+<% end %>
 
 
 <%= simple_form_for @new_invoice do |f| %>
