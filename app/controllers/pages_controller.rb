@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    authorize :dashboard, :show?
     # Retrieve invoices and payments
     @invoices = Transaction.where(profile: @active_profile, nature: "invoice")
     @payments = Transaction.where(profile: @active_profile, nature: "payment")
@@ -29,6 +30,7 @@ class PagesController < ApplicationController
   end
 
   def invoices
+    authorize :dashboard, :show?
     # Retrieve invoices, sort them by date descending and limit the answer size
     @invoices = Transaction.where(profile: @active_profile, nature: "invoice").order("date DESC").limit(30)
     # Initiate a new invoice for the invoice form
@@ -38,6 +40,7 @@ class PagesController < ApplicationController
   end
 
   def payments
+    authorize :dashboard, :show?
     # Retrieve invoices
     @payments = Transaction.where(profile: @active_profile, nature: "payment").order("date DESC").limit(30)
     # Initiate a new payment for the payment form
