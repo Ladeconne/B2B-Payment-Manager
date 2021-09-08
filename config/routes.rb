@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Profile controller
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
 
   resources :profiles, only: [:new, :create]
-  get '/profiles/:id/dashboard', to: 'profiles#dashboard', as: :dashboard
   resources :transactions, only: [:create]
+
+
 end

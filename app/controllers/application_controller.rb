@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
     if user.profile.empty?
       stored_location_for(user) || new_profile_path
     else
-      raise
-      dashboard_path(@profile)
+      dashboard_path
     end
   end
 end
