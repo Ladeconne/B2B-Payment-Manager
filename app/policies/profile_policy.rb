@@ -1,11 +1,21 @@
 class ProfilePolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def new?
+    create?
+  end
 
-    def create?
-      record.user == user
-    end
+  def create?
+    true
+  end
+
+  def dashboard?
+    @record.user == @user
+  end
+
+  def invoices?
+    @record.user == @user
+  end
+
+  def payments?
+    @record.user == @user
   end
 end

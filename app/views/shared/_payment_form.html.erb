@@ -1,0 +1,9 @@
+<%= simple_form_for @new_payment do |f| %>
+  <%= f.input :amount, label: "Amount" %>
+  <%= f.input :date, label: "Date" %>
+  <%= f.input :company_paid, label: "Company" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.hidden_field :nature, value: @new_payment.nature %>
+  <%= f.hidden_field :profile_id, value: @new_payment.profile_id %>
+  <%= f.submit "Create Payment"%>
+<% end %>

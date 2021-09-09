@@ -1,11 +1,8 @@
 class ApplicationPolicy
-  attr_reader :user, :record, :session
+  def initialize(user, record)
+    raise Pundit::NotAuthorizedError, "must be logged in" unless user
 
-  def initialize(context, record)
-    @context = context
+    @user   = user
     @record = record
   end
-
-  delegate :user, to: :context
-  delegate :session, to: :context
 end

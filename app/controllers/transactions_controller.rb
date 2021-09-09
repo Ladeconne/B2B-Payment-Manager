@@ -6,13 +6,14 @@ class TransactionsController < ApplicationController
     when "invoice"
       @transaction = Transaction.new(invoice_params)
     else
-      render 'pages/dashboard'
+      render './shared/payment_form'
     end
 
+    authorize @transaction
     if @transaction.save
       redirect_to dashboard_path
     else
-      render 'pages/dashboard'
+      render
     end
   end
 

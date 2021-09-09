@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     if user.profiles.empty?
-      stored_location_for(user) || new_profile_path
+      new_profile_path
     else
       dashboard_path
     end
@@ -26,9 +26,5 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You are not authorized to perform this action."
     session[:profile_id] = nil
     redirect_to(request.referrer || root_path)
-  end
-
-  def pundit_user
-    UserContext.new(current_user, session)
   end
 end
