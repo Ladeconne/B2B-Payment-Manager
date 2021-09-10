@@ -1,26 +1,28 @@
-<h1>Dashboard - <%= @active_profile.name %></h1>
-<% unless @invoices.empty? %>
-  <%= @invoices.first.nature %>
-  <%= @invoices.first.amount %>
-  <%= @invoices.first.date %>
-  Credit day : <%= @credit_day %>
-  Credit month : <%= @credit_month %>
-<% end %>
-<br>
-<% unless @payments.empty? %>
-  <%= @payments.first.nature %>
-  <%= @payments.first.amount %>
-  <%= @payments.first.date %>
-  <%= @payments.first.company_paid %>
-  Debit day : <%= @debit_day %>
-  Debit month : <%= @debit_month %>
-<% end %>
-<br>
-<% unless @invoices.empty? && @payments.empty? %>
-  Balance : <%= @balance %>
-<% end %>
+  <div id="dashboard" class="main">
+  <h1>Dashboard - <%= @active_profile.name %></h1>
+  <% unless @invoices.empty? %>
+    <%= @invoices.first.nature %>
+    <%= @invoices.first.amount %>
+    <%= @invoices.first.date %>
+    Credit day : <%= @credit_day %>
+    Credit month : <%= @credit_month %>
+  <% end %>
+  <br>
+  <% unless @payments.empty? %>
+    <%= @payments.first.nature %>
+    <%= @payments.first.amount %>
+    <%= @payments.first.date %>
+    <%= @payments.first.company_paid %>
+    Debit day : <%= @debit_day %>
+    Debit month : <%= @debit_month %>
+  <% end %>
+  <br>
+  <% unless @invoices.empty? && @payments.empty? %>
+    Balance : <%= @balance %>
+  <% end %>
 
 
-<%= render  "transactions/invoice_form", new_invoice: @new_invoice %>
+  <%= render  "transactions/invoice_form", new_invoice: @new_invoice %>
 
-<%= render  "transactions/payment_form", new_payment: @new_payment %>
+  <%= render  "transactions/payment_form", new_payment: @new_payment %>
+</div>

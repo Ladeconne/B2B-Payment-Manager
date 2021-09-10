@@ -1,12 +1,119 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+.nav {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 0px 10px $gray;
+  height: 100vh;
+  width: 15vw;
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .circle {
+    top: 5rem;
+    right: -1rem;
+    width: 15px;
+    height: 15px;
+    background-color: $primary;
+    border-radius: 50%;
+  }
+  &__expand {
+    height: 110px;
+    position: absolute;
+    right: -2rem;
+    top: 2rem;
+    z-index: 99;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+
+    &:hover {
+      fill: $gray;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &item {
+      list-style: none;
+      transition: all 200ms ease-in;
+      padding: 1rem 1.5rem;
+      border-left: 6px solid transparent;
+      cursor: pointer;
+
+      &:first-child {
+        margin-bottom: 2rem;
+      }
+
+      a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        color: $gray!important;
+        text-decoration: none;
+        font-weight: 500;
+         p {
+          color: $black;
+          margin-bottom: 0;
+        }
+      }
+
+      a::before {
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 900;
+        font-size: 2rem;
+      }
+
+      #dashboard-icon::before {
+        content: "\f009";
+      }
+      #payments-icon::before {
+        content: "\f5b3";
+      }
+      #invoices-icon::before {
+        content: "\f59a";
+      }
+      #settings-icon::before {
+        content: "\f013";
+      }
+      #logout-icon::before {
+        content: "\f2f5";
+      }
+
+      svg {
+        fill: $gray;
+        width: 2rem;
+      }
+
+      &-active, &:hover {
+        a::before,
+        p {
+          color: $primary !important;
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  //close state
+  &-closed &__expand {
+    transform: rotatez(0deg);
+  }
+
+  &-closed {
+    width: 6vw;
+  }
+
+
+  &-closed &__listitem p {
+    display: none;
+  }
 }

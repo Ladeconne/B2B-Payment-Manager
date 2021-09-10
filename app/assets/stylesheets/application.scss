@@ -15,3 +15,10 @@
 p, h1, h2, h3, span, button, a {
   color: $primary;
 }
+
+.main {
+  margin-left: 15vw;
+  &-closed {
+    margin-left: 6vw;
+  }
+}
