@@ -1,0 +1,8 @@
+<%= simple_form_for @new_invoice do |f| %>
+  <%= f.input :amount, label: "Amount" %>
+  <%= f.input :date, label: "Due date" %>
+  <%= f.input :received, label: "Status" %>
+  <%= f.hidden_field :nature, value: @new_invoice.nature %>
+  <%= f.hidden_field :profile_id, value: @new_invoice.profile_id %>
+  <%= f.submit "Create Invoice"%>
+<% end %>
