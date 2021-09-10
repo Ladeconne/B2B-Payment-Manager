@@ -1,15 +1,16 @@
 <div id="home">
-  <div class="section-title">
+  <div class="section-title bg-white rounded text-center">
     <h1>Welcome to Beatle</h1>
-    <h3>Manager your finances in a simple and understandable way</h3>
+    <br>
+    <p>Manager your finances in a simple and understandable way</p>
   </div>
-  <div class="section-devise">
+  <div class="section-devise bg-white rounded text-center">
     <div class="devise-content">
       <p>If you already have an account please log in <br>
       otherwise click on the sign in button</p>
-      <div class="button-wrapper">
-        <%= link_to  "log-in", new_user_session_path, class:"button button-outlined" %>
-        <%= link_to  "sign-up",  new_user_registration_path, class:"button" %>
+      <div class="button-wrapper d-flex justify-content-around mt-5">
+        <%= link_to  "LOGIN", new_user_session_path, class:"btn btn-outline-primary" %>
+        <%= link_to  "SIGN UP",  new_user_registration_path, class:"btn btn-primary" %>
       </div>
     </div>
   </div>

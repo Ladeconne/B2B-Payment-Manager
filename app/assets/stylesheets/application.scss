@@ -11,3 +11,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+p, h1, h2, h3, span, button, a {
+  color: $primary;
+}

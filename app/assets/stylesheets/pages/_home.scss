@@ -1,1 +1,17 @@
-// Specific CSS for your home-page
+#home {
+  width: 60%;
+  margin: auto;
+  min-height: 100vh;
+  margin-top: 15vh;
+
+  .section-title{
+    margin: 2rem 0;
+    padding: 2rem;
+  }
+
+  .section-devise {
+    width: 80%;
+    margin: 3rem auto;
+    padding: 5rem 2rem;
+  }
+}
