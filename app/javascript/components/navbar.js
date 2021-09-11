@@ -1,13 +1,14 @@
 const animateNavbar = () => {
-  let navExpand = document.querySelector(".nav__expand");
+  let navExpand = document.querySelectorAll(".nav__expand");
   let nav = document.querySelector(".nav");
   let navListItem = document.querySelectorAll(".nav__listitem");
   let main = document.querySelector(".main");
 
-  navExpand.addEventListener("click", () => {
+  navExpand.forEach((expandBtn) => expandBtn.addEventListener("click", () => {
     nav.classList.toggle("nav-closed");
     main.classList.toggle("main-closed");
-  });
+    navExpand.forEach((expandBtn) => expandBtn.classList.toggle("hide"));
+  }));
 
   navListItem.forEach((link) => link.addEventListener("click", listActive));
 

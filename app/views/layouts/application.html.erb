@@ -12,7 +12,7 @@
   </head>
 
   <body>
-  <% unless current_user.nil? %>
+  <% unless current_user.nil? || @home %>
     <%= render 'shared/navbar' %>
   <% end %>
     <%= render 'shared/flashes' %>

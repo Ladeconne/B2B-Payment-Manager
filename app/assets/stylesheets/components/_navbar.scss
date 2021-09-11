@@ -20,7 +20,9 @@
     height: 15px;
     background-color: $primary;
     border-radius: 50%;
+    pointer-events: none;
   }
+
   &__expand {
     height: 110px;
     position: absolute;
@@ -104,8 +106,9 @@
   }
 
   //close state
-  &-closed &__expand {
-    transform: rotatez(0deg);
+
+  .hide {
+    display: none;
   }
 
   &-closed {
