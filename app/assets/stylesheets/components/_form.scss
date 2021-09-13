@@ -9,7 +9,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
   }
-  .form-group {
+  .form-group, .form-check {
     margin-bottom: 1rem;
     display: inline-flex;
     width: 100%;
@@ -17,7 +17,21 @@
     align-items: flex-start;
   }
 
-  .form-control {
+  .form-check {
+    position: inherit;
+    display: flex;
+    padding-left: 0;
+    flex-direction: row-reverse !important;
+  }
+
+  .form-check-input {
+    position: inherit;
+    margin-top: 0;
+    margin-left: 0;
+
+  }
+
+  .form-control, .form-check-input {
     min-width: 100px;
     width: 60%;
   }

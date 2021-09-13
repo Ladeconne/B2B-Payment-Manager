@@ -1,7 +1,9 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
+<div class="main">
+  <h1>Profiles#new</h1>
+  <p>Find me in app/views/profiles/new.html.erb</p>
 
-<%= simple_form_for @profile do |f| %>
-  <%= f.input :name, label: "Enter your company's name" %>
-  <%= f.submit 'Create' %>
-<% end %>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :name, label: "Enter your company's name" %>
+    <%= f.submit 'Create' %>
+  <% end %>
+</div>
