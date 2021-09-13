@@ -1,0 +1,32 @@
+#dashboard{
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 200px 1fr;
+  grid-template-areas:
+        "annual annual"
+        "forms calcs";
+
+  .annual {
+    margin: 1rem;
+    grid-area: annual;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+  }
+  .forms {
+    margin: 1rem;
+    padding: 1rem;
+    grid-area: forms;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+  }
+  .calcs {
+    margin: 1rem;
+    padding: 1rem;
+    grid-area: calcs;
+    display: flex;
+    flex-flow: wrap;
+    align-content: flex-start;
+    flex-direction: row-reverse;
+  }
+}

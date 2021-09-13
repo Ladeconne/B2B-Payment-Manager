@@ -1,0 +1,26 @@
+.calc-card{
+  background-color: $box-color;
+  border-radius: 16px;
+  padding: 1rem;
+  min-width: 250px;
+  width: min-content;
+  margin: 1rem;
+
+  p {
+    margin: 0;
+  }
+  .number-bg{
+    font-size: 56px;
+    color: $secondary;
+  }
+
+  .number-md{
+    font-size: 36px;
+    color: $secondary;
+  }
+
+  .sold-line{
+    display: flex;
+    align-items: flex-end;
+  }
+}
