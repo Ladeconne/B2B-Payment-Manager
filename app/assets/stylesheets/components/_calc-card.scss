@@ -8,6 +8,8 @@
 
   p {
     margin: 0;
+    min-width: 50px;
+    text-align: end;
   }
   .number-bg{
     font-size: 56px;
@@ -17,10 +19,12 @@
   .number-md{
     font-size: 36px;
     color: $secondary;
+    margin-right: 10px;
   }
 
   .sold-line{
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
+    justify-content: flex-end;
   }
 }
