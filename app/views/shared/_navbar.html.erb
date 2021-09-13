@@ -12,22 +12,22 @@
           <p>Change profile</p>
         </a>
       </li>
-      <li class="nav__listitem nav__listitem-active">
+      <li class="nav__listitem <%= "nav__listitem-active" if @page == 'dashboard' %>">
         <%= link_to dashboard_path, id:"dashboard-icon" do %>
           <p>Dashboard</p>
         <% end %>
       </li>
-      <li class="nav__listitem">
+      <li class="nav__listitem <%= "nav__listitem-active" if @page == 'payments' %>">
         <%= link_to  payments_path, id:"payments-icon" do %>
           <p>Payments</p>
         <% end %>
       </li>
-      <li id="pri-menu-end" class="nav__listitem">
+      <li id="pri-menu-end" class="nav__listitem  <%= "nav__listitem-active" if @page == 'invoices' %>">
         <%= link_to  invoices_path, id:"invoices-icon" do %>
           <p>Invoices</p>
         <% end %>
       </li>
-      <li class="nav__listitem">
+      <li class="nav__listitem <%= "nav__listitem-active" if @page == 'settings' %>">
         <%= link_to  "#", id:"settings-icon" do %>
           <p>Settings</p>
         <% end %>

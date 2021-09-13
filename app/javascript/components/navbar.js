@@ -1,7 +1,7 @@
 const animateNavbar = () => {
   let navExpand = document.querySelectorAll(".nav__expand");
   let nav = document.querySelector(".nav");
-  let navListItem = document.querySelectorAll(".nav__listitem");
+  let navLink = document.querySelectorAll(".menu-link");
   let main = document.querySelector(".main");
 
   navExpand.forEach((expandBtn) => expandBtn.addEventListener("click", () => {
@@ -10,11 +10,12 @@ const animateNavbar = () => {
     navExpand.forEach((expandBtn) => expandBtn.classList.toggle("hide"));
   }));
 
-  navListItem.forEach((link) => link.addEventListener("click", listActive));
+  navLink.forEach((link) => link.addEventListener("click", listActive));
 
   function listActive() {
-    navListItem.forEach((link) => link.classList.remove("nav__listitem-active"));
-    this.classList.add("nav__listitem-active");
+    navLink.forEach((link) => link.classList.remove("link-active"));
+    console.log(this);
+    this.classList.add("link-active");
   }
 }
 
