@@ -1,10 +1,23 @@
-<h1><%= @active_profile.name %></h1>
+<div id="payments" class="main">
+  <div class="tb bg-white rounded p-3 m-3">
+    <div class="table-title">
+      <h1><%= @active_profile.name %></h1>
+    </div>
+    <div class="tb-content-titles">
+      <label>Company paid</label>
+      <label>Date</label>
+      <label>Amount (in $)</label>
+    </div>
+    <div class="table-content">
+      <% @payments.each do |payment| %>
+        <div class="tb-content-line">
+          <span class="tb-content-line-item"><%= payment.company_paid %></span>
+          <span class="tb-content-line-item"><%= payment.date %></span>
+          <span class="tb-content-line-item"><%= payment.amount %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-
-<% @payments.each do |payment| %>
-  <%= payment.amount %>
-  <%= payment.date %>
-  <%= payment.received %>
-<% end %>
-
-<%= render  "transactions/payment_form", new_payment: @new_payment %>
+  <%= render  "transactions/payment_form", new_payment: @new_payment, page: @page %>
+</div>

@@ -1,9 +1,31 @@
-<h1><%= @active_profile.name %></h1>
+<div id="invoices" class="main">
+  <div class="tb bg-white rounded p-3 m-3">
+    <div class="table-title">
+      <h1><%= @active_profile.name %></h1>
+    </div>
+    <div class="tb-content-titles">
+      <label>Received</label>
+      <label>Due Date</label>
+      <label>Amount (in $)</label>
+    </div>
+    <div class="table-content">
+      <% @invoices.each do |invoice| %>
+        <div class="tb-content-line">
+          <% if invoice.received %>
+            <div class="tb-content-line-item">
+              <div class="circle green"></div>
+            </div>
+          <% else %>
+            <div class="tb-content-line-item">
+              <div class="circle red"></div>
+            </div>
+          <% end %>
+          <span class="tb-content-line-item"><%= invoice.date %></span>
+          <span class="tb-content-line-item"><%= invoice.amount %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<% @invoices.each do |invoice| %>
-  <%= invoice.amount %>
-  <%= invoice.date %>
-  <%= invoice.received %>
-<% end %>
-
-<%= render  "transactions/invoice_form", new_invoice: @new_invoice %>
+  <%= render  "transactions/invoice_form", new_invoice: @new_invoice, page: @page %>
+</div>

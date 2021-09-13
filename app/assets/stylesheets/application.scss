@@ -18,7 +18,12 @@ p, h1, h2, h3, span, button, a {
 
 .main {
   margin-left: 15vw;
+  padding: 1rem 2rem;
   &-closed {
     margin-left: 6vw;
   }
+}
+label {
+  color: $primary;
+  font-weight: 500;
 }

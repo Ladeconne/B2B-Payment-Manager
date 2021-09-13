@@ -3,10 +3,11 @@ class PagesController < ApplicationController
   before_action :set_active_profile, only: [:dashboard, :invoices, :payments]
 
   def home
-    @home = true
+    @page = "home"
   end
 
   def dashboard
+    @page = "dashboard"
     authorize @active_profile, policy_class: ProfilePolicy
     # Retrieve invoices and payments
     @invoices = Transaction.where(profile: @active_profile, nature: "invoice")
@@ -31,9 +32,10 @@ class PagesController < ApplicationController
   end
 
   def invoices
+    @page = "invoices"
     authorize @active_profile, policy_class: ProfilePolicy
     # Retrieve invoices, sort them by date descending and limit the answer size
-    @invoices = Transaction.where(profile: @active_profile, nature: "invoice").order("date DESC").limit(30)
+    @invoices = Transaction.where(profile: @active_profile, nature: "invoice").order("created_at DESC").limit(30)
     # Initiate a new invoice for the invoice form
     @new_invoice = Transaction.new
     @new_invoice.nature = "invoice"
@@ -41,9 +43,10 @@ class PagesController < ApplicationController
   end
 
   def payments
+    @page = "payments"
     authorize @active_profile, policy_class: ProfilePolicy
     # Retrieve invoices
-    @payments = Transaction.where(profile: @active_profile, nature: "payment").order("date DESC").limit(30)
+    @payments = Transaction.where(profile: @active_profile, nature: "payment").order("created_at DESC").limit(30)
     # Initiate a new payment for the payment form
     @new_payment = Transaction.new
     @new_payment.nature = "payment"

@@ -1,0 +1,22 @@
+.tb-content-titles{
+  display: flex;
+  justify-content: space-around;
+}
+.table-content{
+  height: 50vh;
+  overflow: scroll;
+  .tb-content-line {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 0.5px solid $light-gray;
+    border-radius: $border-radius-sm;
+    .tb-content-line-item{
+      width: 100%;
+      text-align: -webkit-center;
+    }
+  }
+  span{
+    color: $secondary;
+  }
+}

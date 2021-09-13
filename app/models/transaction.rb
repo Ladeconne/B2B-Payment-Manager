@@ -1,5 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :profile
+  validates :amount, presence: true
+  validates :company_paid, presence: true
   validates :nature, inclusion: { in: %w[invoice payment],
                                 message: 'Please choose "invoice" or "payment"' }
   validate :transaction_date_cannot_be_in_the_future

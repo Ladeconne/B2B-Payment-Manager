@@ -3,9 +3,9 @@
     <h1>Dashboard - <%= @active_profile.name %></h1>
   </div>
   <div class="forms">
-    <%= render  "transactions/invoice_form", new_invoice: @new_invoice %>
+    <%= render  "transactions/invoice_form", new_invoice: @new_invoice, page: @page %>
 
-    <%= render  "transactions/payment_form", new_payment: @new_payment%>
+    <%= render  "transactions/payment_form", new_payment: @new_payment, page: @page%>
     </div>
   <div class="calcs">
     <div class="calc-card">
