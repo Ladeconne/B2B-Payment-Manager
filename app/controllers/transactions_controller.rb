@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   def create
+    @transaction = true
     case params[:transaction][:nature]
     when "payment"
       @new_payment = Transaction.new(payment_params)

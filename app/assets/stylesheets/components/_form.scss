@@ -1,0 +1,32 @@
+.simple_form{
+  background-color: $box-color;
+  border-radius: $border-radius;
+  padding: 1rem;
+  margin: 1rem;
+
+  .form-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  label {
+    color: $primary;
+    font-weight: 500;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .form-control {
+    min-width: 100px;
+    width: 60%;
+  }
+
+  .invalid-feedback{
+    width: auto;
+  }
+}
