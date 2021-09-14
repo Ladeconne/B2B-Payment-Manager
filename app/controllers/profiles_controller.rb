@@ -1,6 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show destroy edit update]
 
+  def index
+    @profiles = policy_scope(Profile)
+  end
+
   def new
     @profile = Profile.new
     authorize @profile
@@ -11,7 +15,7 @@ class ProfilesController < ApplicationController
     authorize @profile
     @profile.user = current_user
     if @profile.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(profile_id: @profile.id)
     else
       render 'new'
     end
@@ -23,7 +27,12 @@ class ProfilesController < ApplicationController
   def edit
   end
 
-  def delete
+  def destroy
+    @id = params[:id]
+    @profile = Profile.find(@id)
+    authorize @profile
+    @profile.destroy
+    redirect_to profiles_path
   end
 
   def update

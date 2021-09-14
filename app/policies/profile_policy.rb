@@ -1,4 +1,10 @@
 class ProfilePolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.where(user: @user)
+    end
+  end
+
   def new?
     create?
   end
@@ -8,6 +14,10 @@ class ProfilePolicy < ApplicationPolicy
   end
 
   def dashboard?
+    @record.user == @user
+  end
+
+  def destroy?
     @record.user == @user
   end
 

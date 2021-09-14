@@ -31,7 +31,6 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(@id)
     authorize @transaction
     @transaction.destroy
-    authorize @transaction
     case @transaction.nature
     when "invoice"
       redirect_to invoices_path
