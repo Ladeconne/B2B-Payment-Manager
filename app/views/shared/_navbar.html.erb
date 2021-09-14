@@ -4,13 +4,10 @@
     <div id="circle-gray" class="circle bg-blue nav__expand hide"></div>
     <%= image_tag "nav-button-white", id:"nav-btn-white", class:"nav__expand" %>
     <div id="circle-white" class="circle bg-blue nav__expand"></div>
-
     <ul class="nav__list">
-      <li class="nav__listitem">
-        <a href="#">
-          <div class="circle-lg"></div>
-          <p>Change profile</p>
-        </a>
+      <li class="nav__listitem pl-1 d-flex align-items-center">
+          <div class="color-picker"></div>
+          <p class="m-0 pl-2">Change color</p>
       </li>
       <li class="nav__listitem <%= "nav__listitem-active" if @page == 'dashboard' %>">
         <%= link_to dashboard_path, id:"dashboard-icon" do %>
