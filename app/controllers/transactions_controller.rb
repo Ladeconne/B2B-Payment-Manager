@@ -28,12 +28,18 @@ class TransactionsController < ApplicationController
 
   def destroy
     @id = params[:id]
-    raise
-    @transaction = transaction.find(@id)
+    @transaction = Transaction.find(@id)
     authorize @transaction
     @transaction.destroy
     authorize @transaction
-    redirect_to dashboard_path
+    case @transaction.nature
+    when "invoice"
+      redirect_to invoices_path
+    when "payment"
+      redirect_to payments_path
+    else
+      redirect_to :root
+    end
   end
 
   private

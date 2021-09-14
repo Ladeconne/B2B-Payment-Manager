@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/payments', to: 'pages#payments', as: :payments
 
   resources :profiles, only: [:new, :create]
-  resources :transactions, only: [:create]
+  resources :transactions, only: [:create, :destroy]
 
 
 end

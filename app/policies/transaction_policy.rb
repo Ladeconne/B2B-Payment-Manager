@@ -6,4 +6,8 @@ class TransactionPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    @record.profile.user == @user
+  end
 end
