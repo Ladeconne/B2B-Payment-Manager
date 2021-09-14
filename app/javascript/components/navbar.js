@@ -19,12 +19,14 @@ const animateNavbar = () => {
     console.log(this);
     this.classList.add("link-active");
   }
+
+
   // Init of Pickr
-  Pickr.create({
+  const pickr = Pickr.create({
     el: '.color-picker',
     theme: 'nano', // or 'monolith', or 'nano'
     closeWithKey: 'Escape',
-    default: '#42445a',
+    default: "#167FFB",
     components: {
 
         // Main components
@@ -40,6 +42,12 @@ const animateNavbar = () => {
 
     }
   });
+
+  pickr.on('save', (color, instance) => {
+      console.log('Event: "save"', color, instance);
+  }).on('change', (color, source, instance) => {
+      console.log('Event: "change"', color, source, instance);
+  })
 
 }
 
