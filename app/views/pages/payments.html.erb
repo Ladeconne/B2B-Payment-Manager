@@ -14,6 +14,9 @@
           <span class="tb-content-line-item"><%= payment.company_paid %></span>
           <span class="tb-content-line-item"><%= payment.date %></span>
           <span class="tb-content-line-item"><%= payment.amount %></span>
+          <%= link_to transaction_path(payment), method: :delete, data:{ confirm: "Are you sure you want to delete this transaction?"}, class:"tb-content-line-item" do%>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
         </div>
       <% end %>
     </div>
