@@ -29,6 +29,7 @@ p "Creating 10 new invoices"
   invoice.nature = "invoice"
   invoice.date = Faker::Date.backward(days: 90)
   invoice.amount = Faker::Number.between(from: 30, to: 600)
+  invoice.company_paid = "N/A"
   invoice.profile = profile
   invoice.save!
 end
