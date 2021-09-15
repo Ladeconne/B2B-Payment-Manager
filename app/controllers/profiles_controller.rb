@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show destroy edit update]
+  before_action :set_profile, only: %i[destroy update]
 
   def index
     @profiles = policy_scope(Profile)
@@ -24,25 +24,22 @@ class ProfilesController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
   def destroy
-    @id = params[:id]
-    @profile = Profile.find(@id)
     authorize @profile
     @profile.destroy
     redirect_to profiles_path
   end
 
   def update
+    raise
+    @profile.color = profile_params.color
   end
 
   private
 
   # USUAL HELPERS
   def profile_params
-    params.require(:profile).permit(:name)
+    params.require(:profile).permit(:name, :color)
   end
 
   def set_profile

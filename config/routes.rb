@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/invoices', to: 'pages#invoices', as: :invoices
   get '/payments', to: 'pages#payments', as: :payments
 
-  resources :profiles, only: [:index, :new, :create, :destroy]
+  resources :profiles, only: [:index, :new, :create, :destroy, :update]
   resources :transactions, only: [:create, :destroy]
 
 

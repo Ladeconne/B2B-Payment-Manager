@@ -45,6 +45,7 @@ const animateNavbar = () => {
 
   pickr.on('save', (color, instance) => {
     // Write in the database
+
     pickr.hide();
   })
   pickr.on('change', (color, source, instance) => {
