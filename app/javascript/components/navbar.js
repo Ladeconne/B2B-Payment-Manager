@@ -20,13 +20,14 @@ const animateNavbar = () => {
     this.classList.add("link-active");
   }
 
-
+  let initColor = `${window.getComputedStyle(document.documentElement).getPropertyValue('--primary-color')}`
+  initColor = initColor.substring(1);
   // Init of Pickr
   const pickr = Pickr.create({
     el: '.color-picker',
     theme: 'nano', // or 'monolith', or 'nano'
     closeWithKey: 'Escape',
-    default: "#167FFB",
+    default: initColor,
     components: {
 
         // Main components
@@ -35,7 +36,6 @@ const animateNavbar = () => {
         // Input / output Options
         interaction: {
             hex: true,
-            rgba: true,
             input: true,
             save: true
         }
@@ -44,9 +44,11 @@ const animateNavbar = () => {
   });
 
   pickr.on('save', (color, instance) => {
-      console.log('Event: "save"', color, instance);
-  }).on('change', (color, source, instance) => {
-      console.log('Event: "change"', color, source, instance);
+    // Write in the database
+    pickr.hide();
+  })
+  pickr.on('change', (color, source, instance) => {
+    document.documentElement.style.setProperty("--primary-color", `${color.toHEXA().toString()}`);
   })
 
 }

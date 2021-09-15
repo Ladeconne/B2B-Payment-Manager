@@ -102,8 +102,8 @@
       &-active, &:hover {
         a::before,
         p {
-          color: $primary !important;
-          fill: $primary;
+          color: var(--primary-color) !important;
+          fill: var(--primary-color);
         }
       }
     }
