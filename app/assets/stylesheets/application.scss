@@ -16,6 +16,11 @@
   --primary-color: #167FFB;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 p, h1, h2, h3, span, button, a, label {
   color: var(--primary-color);
 }
@@ -26,6 +31,7 @@ p, h1, h2, h3, span, button, a, label {
   &-closed {
     margin-left: 6vw;
   }
+  height: 100%;
 }
 
 .btn, .btn-outlined-primary {
@@ -35,4 +41,7 @@ p, h1, h2, h3, span, button, a, label {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
   }
+}
+.btn-primary {
+  color: white !important;
 }

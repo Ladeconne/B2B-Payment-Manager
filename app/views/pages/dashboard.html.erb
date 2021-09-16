@@ -9,8 +9,8 @@
     </div>
   <div class="calcs">
     <div class="calc-card">
+      <h3>Balance</h3>
       <% unless @invoices.empty? && @payments.empty? %>
-        <h3>Balance</h3>
         <p class="number-bg">$<%= @balance %></p>
       <% end %>
     </div>
