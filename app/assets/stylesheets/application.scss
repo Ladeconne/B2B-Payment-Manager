@@ -7,10 +7,10 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import '@simonwep/pickr/dist/themes/lib/variables';
-@import '@simonwep/pickr/dist/themes/lib/mixins';
-@import '@simonwep/pickr/dist/themes/base';
-@import '@simonwep/pickr/dist/themes/nano.scss';
+@import '@simonwep/pickr/src/scss/lib/variables';
+@import '@simonwep/pickr/src/scss/lib/mixins';
+@import '@simonwep/pickr/src/scss/base.scss';
+@import '@simonwep/pickr/src/scss/themes/nano.scss';
 
 // Your CSS partials
 @import "components/index";
