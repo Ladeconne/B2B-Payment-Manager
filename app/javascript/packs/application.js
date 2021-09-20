@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import "@simonwep/pickr/dist/themes/nano.min.css";
 
 // Internal imports, e.g:
 import { animateNavbar } from "../components/navbar";
