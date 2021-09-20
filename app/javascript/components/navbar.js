@@ -1,3 +1,4 @@
+import "@simonwep/pickr/dist/themes/nano.min.css";
 import Pickr from '@simonwep/pickr';
 
 const animateNavbar = () => {
